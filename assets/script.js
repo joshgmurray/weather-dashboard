@@ -1,50 +1,80 @@
-var input = document.querySelector('#inpt');
-var button = document.querySelector('#searchBtn');
-var header = document.querySelector('.project-header');
+const input = document.querySelector('#inpt');
+const button = document.querySelector('#searchBtn');
+const header = document.querySelector('.project-header');
 // var footer = document.querySelector('footer');
 
-var apiKey = 'a92be1494d3c0baec600da80d7ff753c';
+const iconImg = document.getElementById('weather-icon');
+const loc = document.querySelector('#location');
+const tempF = document.querySelector('.f');
+const desc = document.querySelector('.desc');
+const humid = document.querySelector('.humidity');
+const wind = document.querySelector('.wind');
 
-var box = document.querySelector(".box")
-var box2 = $(".box")
-console.log (box)
+const api = 'eee36fb31545951ee6937b387f4442d1';
 
-function searchBar(event){
-    event.preventDefault();
-    console.log(input.value);
-    input.style.display= "none";
-    button.style.display= "none";
-    header.style.display= "none";
-    footer.style.display= "none";
-    var apiurl = `https://api.openweathermap.org/data/2.5/onecall?lat=${input.value}&api_key=${apiKey}`;
 
-fetch(apiurl)
-.then(function(response){
-    return response.json()
 
+
+
+// function searchBar(event){
+//     event.preventDefault();
+//     console.log(input.value);
+//     input.style.display= "none";
+//     button.style.display= "none";
+//     header.style.display= "none";
+//     footer.style.display= "none";
+//     var api = `https://api.openweathermap.org/data/2.5/weather?lat=${input.value}&api_key=${api}`;
+
+// fetch(api)
+// .then(function(response){
+//     return response.json()
 
     
-})
+// })
 
 
-      
-    var apiurl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + data.data[0].latitude + '&lon=' + data.data[0].longitude + '&appid=cfe0b2658aec5af16bf8115cfd986eca&units=imperial';
-    fetch(apiurl)
-    .then(res => res.json())
-    .then(weatherData => {
-        console.log(weatherData)
-        var p = document.createElement("p")
-        p.textContent = "Tempature: " + weatherData.current.temp
-        var append2El = document.querySelector(".operating")
-        append2El.append(p)
-        var p = document.createElement("p")
-        p.textContent = "Humidity: " + weatherData.current.humidity
-        var append2El = document.querySelector(".operating")
-        append2El.append(p)
-        var p = document.createElement("p")
-        p.textContent = "UV Index: " + weatherData.current.uv
-        var append2El = document.querySelector(".operating")
-        append2El.append(p)
-    })
 
-}
+
+window.addEventListener('load', () => {
+    let long;
+    let lat;
+    // Accesing Geolocation of User
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        // Storing Longitude and Latitude in variables
+        long = position.coords.longitude;
+        lat = position.coords.latitude;
+        const base = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api}&units=metric`;
+  
+        // Using fetch to get data
+        fetch(base)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            const { temp } = data.main;
+            const { humidity } = data.main;
+            const place = data.name;
+            // const { wind } = data.speed.wind;
+            const { description, icon } = data.weather[0];
+  
+            const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+            const fahrenheit = (temp * 9) / 5 + 32;
+
+            iconImg.src = iconUrl;
+            loc.textContent = `${place}`;
+            desc.textContent = `${description}`;
+            tempF.textContent = `${fahrenheit.toFixed(2)}°F `;
+            humid.textContent = ` Humidity: ${humidity}`;
+            wind.textContent = `Wind Speed: ${wind}`;
+
+            
+  
+          
+
+          });
+      });
+    }
+  });
+

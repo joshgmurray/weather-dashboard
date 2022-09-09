@@ -1,21 +1,22 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     height: 100vh;
+    font-family:'Courier New', Courier, monospace
     
 }
 
 .container-fluid {
+    height: 100vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
+    flex-direction: column;
 }
 
 header {
@@ -34,11 +35,23 @@ header {
 header .park-finder {
     color: white;
 }
-#display{
-    display:flex;
-    justify-content: center;
-    
-}
+
+.weather {
+    display: flex; 
+    align-items: center;
+    margin: 15px 0;
+    font-size: 1.5rem;
+  }
+
+  #location {
+    font-size: 3rem;
+    font-weight: 800;
+    font-style: italic;
+  }
+  .desc {
+    font-size: 1.25rem;
+    text-transform: capitalize;
+  }
 
 #inpt{
     line-height: 30px;
