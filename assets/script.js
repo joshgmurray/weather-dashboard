@@ -22,6 +22,7 @@ fetch(apiurl)
 .then(function(response){
     return response.json()
 
+
     
 })
 
