@@ -40,6 +40,10 @@ fetch(apiurl)
         p.textContent = "Humidity: " + weatherData.current.humidity
         var append2El = document.querySelector(".operating")
         append2El.append(p)
+        var p = document.createElement("p")
+        p.textContent = "UV Index: " + weatherData.current.uv
+        var append2El = document.querySelector(".operating")
+        append2El.append(p)
     })
 
 }
