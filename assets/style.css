@@ -53,6 +53,11 @@ header .park-finder {
     text-transform: capitalize;
   }
 
+  .windspeed {
+    font-size: 1.25rem;
+    text-transform: capitalize;
+  }
+
 #inpt{
     line-height: 30px;
     background-color: white;  

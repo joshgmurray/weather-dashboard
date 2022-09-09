@@ -3,12 +3,12 @@ const button = document.querySelector('#searchBtn');
 const header = document.querySelector('.project-header');
 // var footer = document.querySelector('footer');
 
-const iconImg = document.getElementById('weather-icon');
+
 const loc = document.querySelector('#location');
 const tempF = document.querySelector('.f');
 const desc = document.querySelector('.desc');
 const humid = document.querySelector('.humidity');
-const wind = document.querySelector('.wind');
+const wind = document.querySelector('.windspeed');
 
 const api = 'eee36fb31545951ee6937b387f4442d1';
 
@@ -56,18 +56,18 @@ window.addEventListener('load', () => {
             const { temp } = data.main;
             const { humidity } = data.main;
             const place = data.name;
-            // const { wind } = data.speed.wind;
+            const  wind  = data.wind;
             const { description, icon } = data.weather[0];
   
             const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
             const fahrenheit = (temp * 9) / 5 + 32;
 
-            iconImg.src = iconUrl;
+
             loc.textContent = `${place}`;
             desc.textContent = `${description}`;
             tempF.textContent = `${fahrenheit.toFixed(2)}°F `;
             humid.textContent = ` Humidity: ${humidity}`;
-            wind.textContent = `Wind Speed: ${wind}`;
+            wind.textContent = `Wind Speed: ${wind.toFixed}`;
 
             
   
