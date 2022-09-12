@@ -24,9 +24,10 @@
 
         <section class="top-banner">
             <div class="container">
-              <form>
-                <input type="text" placeholder="Search for a city" autofocus>
-                <button id= "Search Btn" class= "btn" type="submit">SUBMIT</button>
+              <form onsubmit="forecast()">
+                <input id="searchBar" type="text" placeholder="Search for a city" autofocus>
+                <!-- <button id= "Search Btn" class= "btn" type="submit">SUBMIT</button> -->
+                <input type="submit" value="submit">
                 <span class="msg"></span>
               </form>
             </div>
