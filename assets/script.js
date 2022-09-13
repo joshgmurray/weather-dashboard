@@ -13,10 +13,7 @@ const api = "eee36fb31545951ee6937b387f4442d1";
 function searchBar(event) {
   event.preventDefault();
   console.log(input.value);
-//   input.style.display = "none";
-//   button.style.display = "none";
-//   header.style.display = "none";
-  var api = `https://api.openweathermap.org/data/2.5/weather?q=input.value}&api_key=${api}`;
+  var api = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&api_key=${api}`;
 
   fetch(api).then(function (response) {
     return response.json();
@@ -24,29 +21,36 @@ function searchBar(event) {
 }
 
 
-let searchBar = document.getElementById('searchBar');
+let search = document.getElementById('searchBr');
 const testFunction = (e) => {
     e.preventDefault()
 }
 
-searchBar.value
+search.value
 
-function forecast() {
+function forecast(event) {
+    console.log(event.target)
+    event.preventDefault();
+    console.log(search.value)
   fetch(
-    "https://api.openweathermap.org/data/2.5/forecast?q=Seattle&appid=eee36fb31545951ee6937b387f4442d1"
+    `https://api.openweathermap.org/data/2.5/forecast?q=${search.value}&appid=eee36fb31545951ee6937b387f4442d1`
   )
-    .then((response) => {
-      return response.json();
+    .then((dog) => {
+      return dog.json();
     })
 
     .then((data) => {
       console.log(data);
+  
+      
+    document.getElementById('location').innerHTML = data.city.name
     });
 }
 
-function forecast() {
-    console.log("hello");
-}
+
+// function forecast() {
+//     console.log("hello");
+// }
 
 window.addEventListener("load", () => {
   let long;
