@@ -11,7 +11,7 @@ body {
 }
 
 .container-fluid {
-    height: 100vh;
+    height: 25vh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -81,3 +81,70 @@ button.btn:hover{
     z-index: -1;
 }
 
+.card {
+    float: left;
+    left: 2vw;
+    top: 5vh;
+    position: absolute;
+    display: -ms-flexbox;
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  #weather {
+    width: 40%;
+    float: left;
+  }
+
+  #fivedays {
+    width: 60%;
+    float: left;
+  }
