@@ -42,14 +42,14 @@ function getWeather(coordinateData){
         var weather = document.getElementById('weather');
             var htmlStr = '<div class="card">'
                 + '<h1>' + data.name + '</h1>'
-                + '<p class="price"> temp: ' + data.main.temp + '</p>'
-                + '<p><button>feels like: ' + data.main.feels_like +'</button></p>'
-                + '<p><button>humidity: ' + data.main.humidity +'</button></p>'
-                + '<p><button>pressure: ' + data.main.pressure +'</button></p>'
-                + '<p><button>temp_max: ' + data.main.temp_max +'</button></p>'
-                + '<p><button>temp_min: ' + data.main.temp_min +'</button></p>'
-                + '<p><button>wind speed: ' + data.wind.speed +'</button></p>'
-                + '<p><button>wind deg: ' + data.wind.deg +'</button></p>'
+                + '<p class="price"> Temp: ' + data.main.temp + '°F</p>'
+                + '<p><button>Feels Like: ' + data.main.feels_like +'°F</button></p>'
+                + '<p><button>Humidity: ' + data.main.humidity +'%</button></p>'
+                + '<p><button>Pressure: ' + data.main.pressure +'</button></p>'
+                + '<p><button>Max Temp: ' + data.main.temp_max +'°F</button></p>'
+                + '<p><button>Min Temp: ' + data.main.temp_min +'°F</button></p>'
+                + '<p><button>Wind Speed: ' + data.wind.speed +' mph</button></p>'
+                + '<p><button>Wind Deg: ' + data.wind.deg +'</button></p>'
                 + '</div>'
             weather.innerHTML = htmlStr;
     })
@@ -78,18 +78,6 @@ function forecast(city) {
            var humidInfo= fiveDayArray[i].main.humidity;
            var windSpeed= fiveDayArray[i].wind.speed;
 
-        //    var p = document.createElement("p")
-        //    p.textContent = "Tempature: " + tempInfo;
-        //    var append2El = document.querySelector("operating")
-        //    append2El.append(p)
-        //    var p = document.createElement("p")
-        //    p.textContent = "Humidity: " + humidInfo;
-        //    var append2El = document.querySelector("operating")
-        //    append2El.append(p)
-        //    var p = document.createElement("p")
-        //    p.textContent = "Wind Speed: " + windSpeed;
-        //    var append2El = document.querySelector("operating")
-        //    append2El.append(p)
 
            console.log(tempInfo);
            console.log(humidInfo);
@@ -102,10 +90,10 @@ function forecast(city) {
       
       console.log(fiveDayArray);
       var fiveDays = document.getElementById('fivedays');
-      var htmlStr = '<h2 class="text-center">5 days weather data</h2>';
+      var htmlStr = '<h2 class="text-center">5 Day Forecast</h2>';
       htmlStr += '<table id="customers">'
         + '<tr><th>Date</th>'
-        + '<th>Main</th>'
+        + '<th>Temp</th>'
         + '<th>Wind</th>'
         + '</tr>';
     
@@ -114,16 +102,16 @@ function forecast(city) {
             htmlStr += '<tr>'
             + '<td>' + data.dt_txt + '</td>'
             + '<td>'
-            + '<p>temp: ' + data.main.temp +'</p>'
-            + '<p>temp_max: ' + data.main.temp_max +'</p>'
-            + '<p>temp_min: ' + data.main.temp_min +'</p>'
-            + '<p>feels like: ' + data.main.feels_like +'</p>'
-            + '<p>humidity: ' + data.main.humidity +'</p>'
-            + '<p>pressure: ' + data.main.pressure +'</p>'
+            + '<p>Temp: ' + data.main.temp +'°F</p>'
+            + '<p>Max Temp: ' + data.main.temp_max +'°F</p>'
+            + '<p>Min Temp: ' + data.main.temp_min +'°F</p>'
+            + '<p>Feels Like: ' + data.main.feels_like +'</p>'
+            + '<p>Humidity: ' + data.main.humidity +'%</p>'
+            + '<p>Pressure: ' + data.main.pressure +'</p>'
             + '</td>'
             + '<td>'
-            + '<p>wind speed: ' + data.wind.speed +'</p>'
-            + '<p>wind deg: ' + data.wind.deg +'</p>'
+            + '<p>Wind Speed: ' + data.wind.speed +' mph</p>'
+            + '<p>Wind Deg: ' + data.wind.deg +'</p>'
             + '</td>'
           + '</tr>'
         }
